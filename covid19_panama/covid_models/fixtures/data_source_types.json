@@ -1,0 +1,23 @@
+[
+    {
+        "model": "covid_models.DataSourceType",
+        "pk": 1,
+        "fields": {
+           "type": "Database"
+        }
+    },
+    {
+        "model": "covid_models.DataSourceType",
+        "pk": 2,
+        "fields": {
+           "type": "CSV"
+        }
+    },
+    {
+        "model": "covid_models.DataSourceType",
+        "pk": 3,
+        "fields": {
+           "type": "Excel"
+        }
+    }
+]

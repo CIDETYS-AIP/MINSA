@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+
+<h1>Generar Pronósticos</h1>
+<div id="last_forecast">
+        <p><b>Ultimo pronóstico: </b>{{ last_forecast.date }}</p>
+        <p><b>Tipo: </b>{{ last_forecast.type  }}</p>
+        <p><b>Fuente de datos: </b>{{ last_forecast.data_source_type  }}</p>
+</div>
+
+<div id="file_upload_form">
+        <h5>Formulario para generar pronóstico</h5>
+        <form action='{% url 'covid_models:generate_forecast' %}' method="post">
+                {{  generate_forecast_form |crispy }}
+                <br>
+                <input type="submit" value="Generar pronóstico"/>
+        </form>
+</div>
+
+<script type="text/javascript">
+</script>
+
+{% endblock content %}

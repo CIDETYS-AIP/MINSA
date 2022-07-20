@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block content %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+
+<div id="arima_model_information">
+    <h1>Modelo ARIMA</h1>
+
+    <h5>Descripción</h5>
+    <p>Para el modelo estocástico y estadístico ARIMA, las series de tiempo que le conforman son del tipo univariante, ya que para analizar y realizar un pronóstico con ARIMA la serie y datos a predecir dependen solamente de la serie y datos del pasado. (Casimiro, 2009)</p> 
+    <p>Para la ecuación de un modelo ARIMA resulta importante determinar si hay que adicionar una constante o no (Nau, Summary of rules for identifying ARIMA models, s.f.):</p>
+    <ul>
+        <li>Si el modelo no consta de diferenciaciones, generalmente se le agrega una constante debido a que la naturaleza de la serie facilita la presencia de una media distinta de cero.</li>
+        <li>Si el modelo consta de una única diferenciación total, la constante se agrega solo si la serie en cuestión tiene una tendencia promedio distinta de cero.</li>
+        <li>Si el modelo consta de una cantidad de dos diferenciaciones totales, generalmente no se le adiciona una constante.</li>
+    </ul>
+    <p>El modelo ARIMA se describe de la siguiente manera:
+
+</p>
+    <ul>
+        <li>AR: Autoregression. La autoregresión es un modelo que consiste en predecir series de tiempo basándose en series de tiempo del pasado. (Fernando, 2019)</li>    
+        <li>‘’I: Integrated. El uso de diferenciación de observaciones crudas (ej.: substraer una observación de una observación en el paso de tiempo anterior) con el fin de hacer la serie temporal estacionaria.</li>
+        <li>MA: Moving Average. Es un modelo que utiliza la dependencia entre una observación y un error residual proveniente de un modelo de media móvil aplicado a observaciones de retardo’’. (Brownlee, 2017)</li>
+    </ul>
+    <p>Estas siglas, además de ser las componentes del modelo ARIMA, se definen también dentro del mismo como parámetros. Estos parámetros se representan con letras dentro de la notación ARIMA (p, d, q) para los cuales a cada uno se les asigna un valor que determina exactamente el tipo de modelo ARIMA que se aplicará. (Brownlee, 2017)</p>
+</div>
+
+{% endblock content %}

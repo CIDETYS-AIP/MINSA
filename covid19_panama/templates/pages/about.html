@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Proyecto de tesis COVID-19</h1>
+<h4>Integrantes</h4>
+<p>Arturo Chong Lin, estudiante de la carrera de Ingeniería de Software. Encargado del diseño, programación y gestión del sistema de software.</p>
+<p>Roberto Castillero, estudiante de la carrera de Ingeniería Industrial. Encargado del modelo ARIMA y su aplicación para pronosticar casos de COVID-19.</p>
+<p>Jaime Esquivel, estudiante de la carrera de Ingeniería Industrial. Encargado del modelo SIR y su aplicación para pronosticar casos de COVID-19.</p>
+<p>Victor Lopez, profesor asesor para la parte de Ingeniería de Software. Encargado de asesorar los aspectos de la Ingeniería de Software.
+<p>Humberto Álvarez, profesor asesor para la parte de Ingeniería Industrial. Encargado de asesorar los aspectos de la Ingeniería Industrial.
+
+<h4>Acerca de</h4>
+<p>Este proyecto de tesis tiene como objetivo la implementación de modelos estadísticos que realizan pronósticos de los casos de COVID-19 utilizando data públicamente accesible.</p>
+<p>Los modelos utilizados son dos:</p>
+<ol>
+  <li><a href="{% url 'covid_models:arima_model' %}">ARIMA</a></li>
+  <li><a href="{% url 'covid_models:sir_model' %}">SIR</a></li>
+</ol>
+
+{% endblock content %}

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block content %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+{% comment %}<div class="arima-model">{% endcomment %}
+    {% comment %}<h1>Modelo ARIMA</h1>{% endcomment %}
+    {% comment %}<p><b>Ultimo pronóstico: </b>Dec. 5, 2021, 1:26 p.m.</p>{% endcomment %}
+    {% comment %}<canvas id="arimaChart" width="60" height="25"></canvas>{% endcomment %}
+
+    {% comment %}<script type="text/javascript">{% endcomment %}
+        {% comment %}$.get('{% url "covid_models:arima_chart" %}', function(data) {{% endcomment %}
+            {% comment %}var ctx = $("#arimaChart").get(0).getContext("2d");{% endcomment %}
+            {% comment %}new Chart(ctx, {{% endcomment %}
+                {% comment %}type: 'line', data: data{% endcomment %}
+            {% comment %}});{% endcomment %}
+        {% comment %}});{% endcomment %}
+    {% comment %}</script>{% endcomment %}
+{% comment %}</div>{% endcomment %}
+{% comment %}<br>{% endcomment %}
+<div class="sir-model">
+    <h1>Modelo SIR</h1>
+    <p><b>Ultimo pronóstico: </b>{{last_forecast_date}}</p>
+
+    <canvas id="sirChartDailyCases" width="1000" height="900"></canvas>
+
+    <script type="text/javascript">
+        $.get('{% url "covid_models:sir_chart_daily_cases" %}', function(data) {
+            var ctx = $("#sirChartDailyCases").get(0).getContext("2d");
+            data.datasets[0].backgroundColor = 'rgba(45, 85, 255, 0.4)';
+            data.datasets[0].borderColor = 'rgba(45, 85, 255, 0.7)';
+            data.datasets[0].pointBackgroundColor = 'rgba(45, 85, 255, 1)';
+
+            new Chart(ctx, {
+                type: 'line', data: {
+                    labels: data.labels,
+                    datasets: data.datasets
+                }
+            });
+        });
+    </script>
+
+    <br>
+
+    <canvas id="sirChartDailyDeaths" width="1000" height="900"></canvas>
+
+    <script type="text/javascript">
+        $.get('{% url "covid_models:sir_chart_daily_deaths" %}', function(data) {
+            var ctx = $("#sirChartDailyDeaths").get(0).getContext("2d");
+            data.datasets[0].backgroundColor = 'rgba(45, 85, 255, 0.4)';
+            data.datasets[0].borderColor = 'rgba(45, 85, 255, 0.7)';
+            data.datasets[0].pointBackgroundColor = 'rgba(45, 85, 255, 1)';
+
+            new Chart(ctx, {
+                type: 'line', data: {
+                    labels: data.labels,
+                    datasets: data.datasets
+                }
+            });
+        });
+    </script>
+
+    <br>
+
+    <canvas id="sirChartDailyTests" width="1000" height="900"></canvas>
+
+    <script type="text/javascript">
+        $.get('{% url "covid_models:sir_chart_daily_tests" %}', function(data) {
+            var ctx = $("#sirChartDailyTests").get(0).getContext("2d");
+            data.datasets[0].backgroundColor = 'rgba(45, 85, 255, 0.4)';
+            data.datasets[0].borderColor = 'rgba(45, 85, 255, 0.7)';
+            data.datasets[0].pointBackgroundColor = 'rgba(45, 85, 255, 1)';
+
+            new Chart(ctx, {
+                type: 'line', data: {
+                    labels: data.labels,
+                    datasets: data.datasets
+                }
+            });
+        });
+    </script>
+</div>
+{% endblock content %}

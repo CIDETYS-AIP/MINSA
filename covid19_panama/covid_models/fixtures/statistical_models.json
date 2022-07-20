@@ -1,0 +1,16 @@
+[
+    {
+        "model": "covid_models.StatisticalModel",
+        "pk": 1,
+        "fields": {
+           "name": "SIR LSTM"
+        }
+    },
+    {
+        "model": "covid_models.StatisticalModel",
+        "pk": 2,
+        "fields": {
+           "name": "ARIMA"
+        }
+    }
+]

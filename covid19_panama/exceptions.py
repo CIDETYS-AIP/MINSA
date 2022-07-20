@@ -1,0 +1,2 @@
+class NoStrategyProvidedException(Exception):
+    pass

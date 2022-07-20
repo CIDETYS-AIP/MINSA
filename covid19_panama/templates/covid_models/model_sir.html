@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block content %}
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+
+<div id="sir_model_information">
+    <h1>Modelo SIR</h1>
+
+    <h5>Descripción</h5>
+    <p>El modelo SIR es uno determinista basado en ecuaciones diferenciales, a estos modelos basados en ecuaciones diferenciales también se les llaman modelos compartimentales, entendiendo como compartimento una región con un grupo de individuos distribuidos uniformemente. (López, 2017)</p> 
+    <p>Este modelo se basa en una seria de supuestos como los describe (López, 2017):</p>
+
+    <ol>
+        <li>El tamaño de la población al momento del estudio es constante (no se toman en consideración nuevos nacimientos, muertes o muertes por causas naturales o cualquier enfermedad no relacionada con la estudiada.</li>
+        <li>El periodo de incubación del virus es instantáneo, y la duración de la infección es del mismo periodo que el de la enfermedad.</li>
+        <li>La distribución de individuos es homogénea en cada compartimento y no se consideran ni la edad, ni el espacio que ocupan, ni estructura social.</li>
+        <li>La tasa de paso de un material de un compartimento o estado a otro depende de la cantidad de material existente en otro compartimento.</li>
+        <li>Existe una ley de conservación de los materiales o elementos de cada compartimento, sin embargo, no es estrictamente necesario.</li>
+        <li>Estos modelos también se caracterizan porque se concentran en la dinámica temporal de una población, y esta población está dividida en compartimentos o grupos finitos. (López, 2017) Dentro del modelo utilizado, está basado en una división simple de tres compartimentos que son excluyentes.</li>
+    </ol>
+
+    <p>Este modelo SIR posee dos parámetros fundamentales que son los que modifican su comportamiento en el tiempo, estos son: La tasa de infección (𝛽) y la tasa de recuperación (𝛾). Estos dos parámetros son fundamentales para definir el modelo, y sus valores se obtienen de los datos recolectados sobre el virus propiamente estudiado.</p>
+</div>
+
+{% endblock content %}
